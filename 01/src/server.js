@@ -1,14 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 const usersRouter = require('./routes/users');
 
 const server = express();
 const port = 4000;
 
+dotenv.config();
+
 mongoose
-  .connect(
-    'mongodb+srv://bitclases:compak*@bit-cluster.2njakta.mongodb.net/usersDB?retryWrites=true&w=majority'
-  )
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('Conectado a la base de datos.');
   })

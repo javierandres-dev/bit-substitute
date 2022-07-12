@@ -52,7 +52,7 @@ router.put('/users/:id', (request, response) => {
   //response.send('Actualizar un usuario específico.');
   const { id } = request.params;
   console.log('id:', id);
-  const user = userSchema(request.body);
+  const user = request.body;
   console.log('user:', user);
   userSchema
     .updateOne({ _id: id }, { $set: user })

@@ -91,7 +91,7 @@ router.delete('/users/:id', (request, response) => {
 // Login
 router.post('/login', async (request, response) => {
   try {
-    //console.log(request.body);
+    console.log(request.body);
     const user = await userSchema.findOne({
       email: request.body.email,
     });

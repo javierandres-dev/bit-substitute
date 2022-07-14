@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors');
 const usersRouter = require('./routes/users');
 
 const server = express();
@@ -17,6 +18,7 @@ mongoose
     console.log('Error al conectar a la base de datos');
   });
 
+server.use(cors());
 server.use(express.json());
 server.use('/api/v1', usersRouter);
 
